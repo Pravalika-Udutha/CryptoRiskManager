@@ -1,0 +1,53 @@
+:root {
+  --main-color: whitesmoke;
+  --second-color: #34495e;
+}
+
+.container-fluid {
+  padding: 50px;
+}
+
+.container {
+  background-color: var(--main-color);
+  padding: 20px;
+  border: 2px solid var(--second-color);
+  border-radius: 10px;
+}
+
+#title {
+  font-family: "segeo ui black", cursive;
+  text-align: center;
+  color: var(--second-color);
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--main-color);
+  font-size: 19px;
+  color: white;
+}
+
+.info-table .no-border-tr td {
+  border-bottom: 1px solid var(--second-color);
+}
+
+.style2 {
+  color: whitesmoke;
+  text-align: right;
+}
+
+.col-md-5 {
+  background-color: var(--second-color);
+  border-radius: 10px;
+  padding: 5px 20px;
+  color: var(--main-color);
+}

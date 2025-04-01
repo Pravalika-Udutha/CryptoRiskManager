@@ -1,0 +1,52 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+{% load static %}
+
+<link href="{% static 'css/SRemoteUsers.css' %}" rel="stylesheet">
+
+<body>
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<form role="form" method="POST">
+						{% csrf_token %}
+						<p class="text-uppercase pull-center">ALL REMOTE USERS</p>
+						<hr>
+						<div class="viewclients">
+							<table>
+								<thead>
+									<tr>
+										<th class="table-head">USER NAME</th>
+										<th class="table-head">EMAIL</th>
+										<th class="table-head">Gender</th>
+										<th class="table-head">Address</th>
+										<th class="table-head">Mob No</th>
+										<th class="table-head">Country</th>
+										<th class="table-head">State</th>
+										<th class="table-head">City</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for o in objects %}
+									<tr>
+										<td><span class="style1">{{o.username}}</span></td>
+										<td><span class="style1">{{o.email}}</span></td>
+										<td><span class="style1">{{o.gender}}</span></td>
+										<td><span class="style1">{{o.address}}</span></td>
+										<td><span class="style1">{{o.phoneno}}</span></td>
+										<td><span class="style1">{{o.country}}</span></td>
+										<td><span class="style1">{{o.state}}</span></td>
+										<td><span class="style1">{{o.city}}</span></td>
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+</body>

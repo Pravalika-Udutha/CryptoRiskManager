@@ -1,0 +1,138 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+<script>
+    window.onload = function () {
+        var chartType = "{{ chart_type }}"; // Fetching chart type from Django template
+
+        var chartData = []; // Placeholder for chart data
+
+        {% if chart_type == "line" %}
+        chartData.push({
+            type: "line",
+            startAngle: 240,
+            yValueFormatString: "##0.00'%'",
+            indexLabel: "{label} {y}",
+            dataPoints: [
+                {% for o in form %}
+                         { y: {{ o.dcount }}, label: "{{ o.names }}" },
+    {% endfor %}
+                 ]
+             });
+    {% elif chart_type == "pie" %}
+    chartData.push({
+        type: "pie",
+        startAngle: 240,
+        yValueFormatString: "##0.00'%'",
+        indexLabel: "{label} {y}",
+        dataPoints: [
+            {% for o in form %}
+                         { y: {{ o.dcount }}, label: "{{ o.names }}" },
+        {% endfor %}
+                 ]
+             });
+    {% elif chart_type == "spline" %}
+    chartData.push({
+        type: "spline",
+        startAngle: 240,
+        yValueFormatString: "##0.00'%'",
+        indexLabel: "{label} {y}",
+        dataPoints: [
+            {% for o in form %}
+                         { y: {{ o.dcount }}, label: "{{ o.names }}" },
+        {% endfor %}
+                 ]
+             });
+    {% endif %}
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title: {
+            text: ""
+        },
+        data: chartData
+    });
+
+    chart.render();
+
+    // Debug: Output chart type and form data to console (optional)
+    console.log("Chart Type:", chartType);
+    console.log("Form Data:", chartData);
+     }
+</script>
+
+<style>
+    .topic {
+        max-width: 1000px;
+        margin: 50px auto;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        overflow: hidden;
+    }
+
+    .sidemenu {
+        float: left;
+        width: 200px;
+        padding: 20px;
+        margin-top: 120px;
+    }
+
+    .sidemenu h3 {
+        margin: 0;
+        padding: 10px;
+        background-color: #34495e;
+        color: whitesmoke;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .graph {
+        float: left;
+        width: calc(100% - 240px);
+        height: 400px;
+        /* Adjust according to your needs */
+    }
+
+    /* Links */
+    .sidemenu h3 a {
+        text-decoration: none;
+        color: inherit;
+        padding: 10px;
+    }
+
+    .sidemenu h3 a:hover {
+        font-style: italic;
+        font-size: 22px;
+    }
+
+    /* Responsive adjustments */
+    @media only screen and (max-width: 600px) {
+        .sidemenu {
+            float: none;
+            width: 100%;
+        }
+
+        .graph {
+            width: 100%;
+        }
+    }
+</style>
+
+<body>
+    <br>
+    <div class="topic">
+        <div class="sidemenu" align="center">
+            <h3><a href="{% url 'charts' 'pie' %}">PIE CHART<br><br></a>
+                <a href="{% url 'charts' 'line' %}">LINE CHART</a></h3>
+            </h3>
+        </div>
+        <div id="chartContainer" class="graph"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </div>
+
+</body>
+{% endblock %}

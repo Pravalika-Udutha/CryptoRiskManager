@@ -1,0 +1,168 @@
+{% extends 'RUser/Header.html' %}
+{% block userblock %}
+{% load static %}
+
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+<link href="{% static 'css/RPredict.css' %}" rel="stylesheet">
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <form role="form" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            <p class="text-uppercase pull-center">PREDICTION OF CRYPTO CURRENCY FINANCIAL RISK
+                                TYPE !!! </p>
+                            <hr>
+
+                            {% csrf_token %}
+                            <table width="1023" align="center">
+                                <tr>
+                                    <td height="44" colspan="4" style="background-color: var(--main-color);">
+                                        <div align="center" class="style4">ENTER CRYPTO CURRENCY DETAILS HERE !!! </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter 24h Volume USD </span></div>
+                                    </td>
+                                    <td><input type="text" name="volume_usd_24h"></td>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter Available Supply</span></div>
+                                    </td>
+                                    <td><input type="text" name="available_supply"></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter ID</span></div>
+                                    </td>
+                                    <td><input type="text" name="idn"></td>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter Last Updated</span></div>
+                                    </td>
+                                    <td><input type="text" name="last_updated"></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter Market Cap USD</span></div>
+                                    </td>
+                                    <td><input type="text" name="market_cap_usd"></td>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter Max Supply</span></div>
+                                    </td>
+                                    <td><input type="text" name="max_supply"></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter Crypto Currency Name</span></div>
+                                    </td>
+                                    <td><input type="text" name="name"></td>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter Percentage Change 1h</span></div>
+                                    </td>
+                                    <td><input type="text" name="percent_change_1h"></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter Percent Change 24h</span></div>
+                                    </td>
+                                    <td><input type="text" name="percent_change_24h"></td>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter Percent Change 7d</span></div>
+                                    </td>
+                                    <td><input type="text" name="percent_change_7d"></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter BTC Price</span></div>
+                                    </td>
+                                    <td><input type="text" name="price_btc"></td>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter USD Price</span></div>
+                                    </td>
+                                    <td><input type="text" name="price_usd"></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter Crypto Currency Rank</span></div>
+                                    </td>
+                                    <td><input type="text" name="rank"></td>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter Crypto Currency Symbol</span></div>
+                                    </td>
+                                    <td><input type="text" name="symbol"></td>
+
+                                </tr>
+                                <tr>
+
+                                    <td height="44" class="style4">
+                                        <div><span class="style4">Enter Total Supply</span></div>
+                                    </td>
+                                    <td><input type="text" name="total_supply"></td>
+                                    <td>&nbsp;</td>
+                                    <td>
+                                        <input name="submit" type="submit" class="style4" value="Predict">
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </form>
+
+                    <form role="form" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+
+                            <div class="result">
+                                <span class="style6">Predicted Financial Risk Type</span>
+                                <span class="style4">::</span>
+                                <span id="riskText"></span>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            var riskText = "{{objs}}"; // Assuming objs contains the risk status
+                            var riskElement = document.getElementById("riskText");
+
+                            if (riskText === "No Risk Found") {
+                                riskElement.textContent = riskText;
+                                riskElement.style.color = "green";
+                            } else {
+                                riskElement.textContent = riskText;
+                                riskElement.style.color = "red";
+                            }
+                        });
+                    </script>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>

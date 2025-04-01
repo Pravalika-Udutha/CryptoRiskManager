@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote User</title>
+    <link href="{% static 'css/Rheader.css' %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'images/icon.png' %}" type="image/x-icon" sizes="32*32"/>
+    <style>
+        body {
+            background-image: url("{% static 'images/bg8.jpg' %}");
+            background-size: cover;
+            font-family: 'segeo ui black', cursive;
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+
+    <h1 class="style1">Machine Learning-Based Analysis of Crypto Currency Market Financial Risk Management</h1>
+
+    <div class="topnav">
+
+        <a href="{% url 'predict_crypto_currency_financial_risk_type' %}">PREDICT CRYPTO CURRENCY FINANCIAL RISK
+            TYPE</a>
+        <a href="{% url 'ViewYourProfile' %}">VIEW YOUR PROFILE</a>
+        <a href="{% url 'login' %}">LOGOUT</a>
+    </div>
+
+    <div class="mainholder">
+        {% block userblock %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

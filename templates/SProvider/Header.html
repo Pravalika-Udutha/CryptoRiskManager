@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Service Provider</title>
+    <link rel="icon" href="{% static 'images/icon.png' %}" type="image/x-icon" sizes="32*32" />
+    <link href="{% static 'css/SHeader.css' %}" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("{% static 'images/bg8.jpg' %}");
+            background-size: cover;
+            background-repeat: none;
+            background-color: #EAAFB5;
+            font-family: 'segeo ui black', cursive;
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+
+    <h1 class="title">Machine Learning-Based Analysis of Crypto Currency Market Financial Risk Management</h1>
+
+    <div class="topnav">
+
+        <a href="{% url 'Train_Test_DataSets' %}">Train & Test Crypto Currency Data Sets </a>
+        <a href="{% url 'likeschart' 'bar' %}">View Crypto Currency Trained Accuracy in Bar Chart </a>
+        <a href="{% url 'charts1' 'line' %}"> View Crypto Currency Trained Accuracy Results </a>
+        <a href="{% url 'View_Prediction_Crypto_Currency_Financial_Risk_Type' %}">View Crypto Currency Financial Risk
+            Type</a>
+        <a href="{% url 'Find_Crypto_Currency_Financial_Risk_Type_Ratio' %}">Find Financial Risk Type Ratio </a>
+        <a href="{% url 'Download_Trained_DataSets' %}">Download Predicted Datasets</a>
+        <a href="{% url 'charts' 'line' %}">View Crypto Currency Financial Risk Type Ratio Results </a>
+        <a href="{% url 'View_Remote_Users' %}">View All Remote Users</a>
+        <a href="{% url 'login'  %}">Logout</a>
+
+    </div>
+
+    <div class="mainholder">
+        {% block researchblock %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

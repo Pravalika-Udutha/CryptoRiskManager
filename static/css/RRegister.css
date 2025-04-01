@@ -1,0 +1,213 @@
+.container-fluid {
+    padding: 50px;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+}
+
+#title {
+    font-family: 'segeo ui black', cursive;
+}
+
+.text-uppercase {
+    font-family: 'segeo ui black', cursive;
+
+}
+
+.style1 {
+    color: #FF0000;
+    font-weight: bold;
+}
+
+.style2 {
+    font-family: 'segeo ui black', cursive;
+    color: #b46c0d;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.style3 {
+    color: #b46c0d;
+    font-weight: bold;
+}
+
+.text-muted {
+    font-family: 'segeo ui black', cursive;
+    color: #b46c0d;
+    font-weight: bold;
+}
+
+.login-group {
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="password"] {
+    height: 50px;
+    color: black !important;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 40px;
+    padding-left: 20px;
+    border-bottom: 5px solid lightblue;
+    padding-right: 20px;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="text"]:hover,
+.form-group input[type="password"]:hover,
+.form-group input[type="email"]:hover,
+.form-group input[type="tel"]:hover {
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group select {
+    height: 50px;
+    color: #777 !important;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 5px solid lightblue;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.btn {
+    background-color: #EAAFB5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 55px;
+}
+
+.btn:hover {
+    background-color: #95BBD4;
+}
+
+.btn-lg {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 55px;
+    font-size: large;
+}
+
+.btn-lg a {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-lg a:hover {
+    text-decoration: none;
+}
+
+.container {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#toggle {
+    -webkit-appearance: none;
+}
+
+.button {
+    position: absolute;
+    z-index: 999;
+    width: 43px;
+    height: 43px;
+    background: #b46c0d;
+    color: antiquewhite;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -12px;
+}
+
+.button:before {
+    position: absolute;
+    content: "";
+    display: none;
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    transform: rotate(90deg);
+    transition: all 0.4s ease;
+}
+
+.button:after {
+    position: absolute;
+    content: "";
+    display: none;
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    transition: all 0.4s ease;
+}
+
+.nav {
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    background: #fff;
+    border-radius: 5px;
+    transform: translateY(0%);
+    padding: 10px;
+}
+
+.nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav button {
+    text-align: center;
+    margin: 10px 0;
+    color: #b46c0d;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+#toggle:checked~.nav {
+    opacity: 1;
+    transform: translateY(10%);
+    height: auto;
+}
+
+#toggle:checked~.container {
+    height: auto;
+}
+
+#toggle:checked~ul {
+    display: none;
+}

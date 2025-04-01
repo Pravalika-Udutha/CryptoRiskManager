@@ -1,0 +1,52 @@
+{% extends 'RUser/Header.html' %}
+{% block userblock %}
+{% load static %}
+
+<link href="{% static 'css/RViewYourProfile.css' %}" rel="stylesheet">
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <h1 id="title">User Profile</h1>
+            <div class="row">
+                <div class="col-md-5">
+                    <table class="info-table">
+                        <tr>
+                            <td class="style2">Username</td>
+                            <td>{{ object.username }}</td>
+                        </tr>
+                        <tr>
+                            <td class="style2">Email</td>
+                            <td>{{ object.email }}</td>
+                        </tr>
+                        <tr>
+                            <td class="style2">Mobile Number</td>
+                            <td>{{ object.phoneno }}</td>
+                        </tr>
+                        <tr>
+                            <td class="style2">Gender</td>
+                            <td>{{ object.gender }}</td>
+                        </tr>
+                        <tr>
+                            <td class="style2">Address</td>
+                            <td>{{ object.address }}</td>
+                        </tr>
+                        <tr>
+                            <td class="style2">Country</td>
+                            <td>{{ object.country }}</td>
+                        </tr>
+                        <tr>
+                            <td class="style2">State</td>
+                            <td>{{ object.state }}</td>
+                        </tr>
+                        <tr class="no-border-tr">
+                            <td class="style2">City</td>
+                            <td>{{ object.city }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>

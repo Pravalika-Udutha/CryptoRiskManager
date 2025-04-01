@@ -1,0 +1,41 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+{% load static %}
+
+<link href="{% static 'css/SRatio.css' %}" rel="stylesheet">
+
+<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+
+					<form role="form" method="POST">
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">Crypto Currency Market Financial Risk Type
+								Ratio Details</p>
+							<hr>
+							<div>
+								<table>
+									<tr>
+										<th>Risk Type</th>
+										<th>Ratio</th>
+									</tr>
+									{% for object in objs %}
+									<tr>
+										<td>{{object.names}}</td>
+										<td>{{object.ratio}}</td>
+									</tr>
+									{% endfor %}
+								</table>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+</body>

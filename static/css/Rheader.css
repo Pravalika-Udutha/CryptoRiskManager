@@ -1,0 +1,26 @@
+.topnav {
+    overflow: hidden;
+    background-color: #1a7bae;
+    text-align: center;
+}
+
+.topnav a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 14px 16px;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.topnav a:hover {
+    background-color: #0a5a7f;
+}
+
+.style1 {
+    color: #b46c0d;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: 700;
+    font-size: 32px;
+}

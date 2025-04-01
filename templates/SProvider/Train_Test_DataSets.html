@@ -1,0 +1,43 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+{% load static %}
+
+<link href="{% static 'css/STrainTest.css' %}" rel="stylesheet">
+
+<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+
+					<form role="form" method="POST">
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">Crypto Currency DataSets Trained
+								and Tested Results</p>
+
+							<hr>
+							<div>
+								<table>
+									<tr>
+										<th>Model Type</th>
+										<th>Accuracy</th>
+									</tr>
+									{% for object in objs %}
+									<tr>
+										<td>{{object.names}}</td>
+										<td>{{object.ratio}}</td>
+									</tr>
+									{% endfor %}
+								</table>
+								{{objs1}}
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+</body>
